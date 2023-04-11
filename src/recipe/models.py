@@ -24,7 +24,7 @@ class Tag(TableMixin, Base):
     id = Column(Integer, primary_key=True)
     tag = Column(String(length=20), nullable=False, unique=True)
 
-    RecipeType = relationship("RecipeTag", back_populates="Tag")
+    # RecipeType = relationship("RecipeTag", back_populates="Tag")
 
     __table_args__ = (
         PrimaryKeyConstraint('id', name='Tag_id'),
@@ -36,9 +36,10 @@ class Recipe(TableMixin, Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(length=40), nullable=False)
     description = Column(String, nullable=False)
+    execute_time = Column(Integer, nullable=False, default=0)
     user_id = Column(Integer, ForeignKey("user.id"))
 
-    user = relationship("User", back_populates="Recipe")
+    user = relationship("User")  # , back_populates="Recipe")
 
     __table_args__ = (
         PrimaryKeyConstraint('id', name='Recipe_id'),
@@ -53,9 +54,9 @@ class IngredientCount(TableMixin, Base):
     measure_id = Column(Integer, ForeignKey("measure.id"))
     recipe_id = Column(Integer, ForeignKey("recipe.id"))
 
-    recipes = relationship("Recipe", back_populates="IngredientCount")
-    measures = relationship("Measure", back_populates="IngredientCount")
-    ingredients = relationship("Ingredient", back_populates="IngredientCount")
+    recipes = relationship("Recipe")  # , back_populates="IngredientCount")
+    measures = relationship("Measure")  # , back_populates="IngredientCount")
+    ingredients = relationship("Ingredient")  # , back_populates="IngredientCount")
 
     __table_args__ = (
         PrimaryKeyConstraint('id', name='IngredientCount_id'),
@@ -68,8 +69,8 @@ class RecipeType(TableMixin, Base):
     recipe_id = Column(Integer, ForeignKey("recipe.id"))
     tag_id = Column(Integer, ForeignKey("tag.id"))
 
-    recipe = relationship("Recipe", back_populates="RecipeType")
-    tag = relationship("Tag", back_populates="RecipeType")
+    recipe = relationship("Recipe")  # , back_populates="RecipeType")
+    tag = relationship("Tag")  # , back_populates="RecipeType")
 
     __table_args__ = (
         PrimaryKeyConstraint('id', name='RecipeType_id'),
@@ -83,7 +84,7 @@ class RecipeFile(TableMixin, Base):
     filename = Column(String(length=40), nullable=False)
     is_preview = Column(Boolean, default=None)
 
-    recipe = relationship("Recipe", back_populates="RecipeFile")
+    recipe = relationship("Recipe")  # , back_populates="RecipeFile")
 
     __table_args__ = (
         PrimaryKeyConstraint('id', name='RecipeFile_id'),
