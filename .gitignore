@@ -1,6 +1,7 @@
 .env
 .venv
 .idea
+/log/
 .log
 
 # Project exclude paths
