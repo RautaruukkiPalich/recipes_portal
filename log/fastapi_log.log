@@ -1,0 +1,292 @@
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:46:20.583419: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:46:55.541769: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:48:13.396831: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:53:03.637267: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:53:27.433576: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:54:43.917675: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:56:21.442687: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 17:58:47.096078: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:04:53.307943: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:08:54.408967: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:16:01.454891: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:16:34.825020: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:17:18.781939: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:17:42.332738: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:19:22.100410: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:23:52.238832: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:27:06.278347: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:27:41.209710: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:31:01.886630: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:39:12.006965: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:44:36.216817: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:45:52.169447: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:50:33.272431: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 18:55:54.632853: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 19:00:16.383242: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 19:01:07.052856: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-10 19:02:26.363065: server up...
+INFO:root:2023-03-10 19:04:31.660723: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:36:48.536710: server up...
+INFO:root:2023-03-12 18:37:46.352146: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:38:12.117194: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:40:50.173052: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:42:15.237193: server up...
+INFO:root:2023-03-12 18:42:48.498807: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:42:49.905469: server up...
+INFO:root:2023-03-12 18:43:45.492126: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:43:46.875457: server up...
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:45:13.247385: server up...
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '4.0.1'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:59:45.170658: server up...
+INFO:root:2023-03-12 18:59:53.845718: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 18:59:55.227716: server up...
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '4.0.1'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:27]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[28:36]
+DEBUG:multipart.multipart:Calling on_field_data with data[37:43]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[44:49]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[51:60]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[62:75]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:37]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[38:46]
+DEBUG:multipart.multipart:Calling on_field_data with data[47:53]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[54:59]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[61:70]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[72:85]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 19:09:06.739465: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-12 19:09:19.918030: server up...
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-03-13 11:58:05.768066: server up...
+INFO:root:2023-03-13 11:58:21.475992: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 14:22:57.347751: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 14:34:38.647471: server up...
+INFO:root:2023-04-04 14:34:41.949414: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 14:35:40.701290: server up...
+INFO:root:2023-04-04 14:36:21.879212: server down... 
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 14:38:08.183528: server up...
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '4.0.1'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:31]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[32:40]
+DEBUG:multipart.multipart:Calling on_field_data with data[41:47]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[48:53]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[55:64]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[66:79]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:43]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[44:52]
+DEBUG:multipart.multipart:Calling on_field_data with data[53:59]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[60:65]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[67:76]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[78:91]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 14:44:16.470146: server up...
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:43]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[44:52]
+DEBUG:multipart.multipart:Calling on_field_data with data[53:59]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[60:65]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[67:76]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[78:91]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '4.0.1'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:43]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[44:52]
+DEBUG:multipart.multipart:Calling on_field_data with data[53:59]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[60:65]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[67:76]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[78:91]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 15:01:58.336487: server up...
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:43]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[44:52]
+DEBUG:multipart.multipart:Calling on_field_data with data[53:59]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[60:65]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[67:76]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[78:91]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '4.0.1'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 15:05:20.636103: server up...
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[0:10]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[12:20]
+DEBUG:multipart.multipart:Calling on_field_data with data[21:43]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[44:52]
+DEBUG:multipart.multipart:Calling on_field_data with data[53:59]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[60:65]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[67:76]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_field_start with no data
+DEBUG:multipart.multipart:Calling on_field_name with data[78:91]
+DEBUG:multipart.multipart:Calling on_field_end with no data
+DEBUG:multipart.multipart:Calling on_end with no data
+DEBUG:passlib.registry:registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '4.0.1'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 15:06:29.864015: server up...
+DEBUG:asyncio:Using selector: SelectSelector
+INFO:root:2023-04-04 15:08:03.297005: server up...

@@ -1,0 +1,6 @@
+.env
+.venv
+.idea
+
+# Project exclude paths
+/venv/
