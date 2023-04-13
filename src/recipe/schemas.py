@@ -1,73 +1,104 @@
+from typing import List, Optional
+
 from pydantic import BaseModel
 from pydantic.schema import datetime
 
 
-class TagBase(BaseModel):
+class TagBaseSchema(BaseModel):
     pass
 
 
-class TagCreate(TagBase):
+class TagCreateSchema(TagBaseSchema):
     tag: str
 
 
-class Tag(TagBase):
+class TagSchema(TagCreateSchema):
     id: int
-    tag: str
+
+    class Config:
+        orm_mode = True
+
+
+class TagDelSchema(TagCreateSchema):
     deleted_on: datetime | None
 
     class Config:
         orm_mode = True
 
 
-class MeasureBase(BaseModel):
+class MeasureBaseSchema(BaseModel):
     pass
 
 
-class MeasureCreate(MeasureBase):
+class MeasureCreateSchema(MeasureBaseSchema):
     measure: str
 
 
-class Measure(MeasureBase):
+class MeasureSchema(MeasureCreateSchema):
     id: int
-    measure: str
 
     class Config:
         orm_mode = True
 
 
-class IngredientBase(BaseModel):
+class IngredientBaseSchema(BaseModel):
     pass
 
 
-class IngredientCreate(IngredientBase):
+class IngredientCreateSchema(IngredientBaseSchema):
     name: str
 
 
-class Ingredient(IngredientBase):
+class IngredientSchema(IngredientCreateSchema):
     id: int
-    name: str
 
     class Config:
         orm_mode = True
 
 
-class RecipeBase(BaseModel):
+class IngredientCountSchema(BaseModel):
+    id: int
+    ingredient: IngredientSchema
+    count: int
+    measure: MeasureSchema
+
+    class Config:
+        orm_mode = True
+
+
+class UserBaseSchema(BaseModel):
     pass
 
 
-class RecipeCreate(RecipeBase):
-    name: str
-    description: str
-    execute_time: int
-    user_id: int
-
-
-class Recipe(RecipeBase):
+class UserSchema(UserBaseSchema):
     id: int
+    first_name: str
+    last_name: str
+
+
+class RecipeBaseSchema(BaseModel):
+    pass
+
+
+class RecipeCreateSchema(RecipeBaseSchema):
     name: str
     description: str
     execute_time: int
+
+
+class RecipeSchema(RecipeCreateSchema):
+    id: int
     user_id: int
+
+    class Config:
+        orm_mode = True
+
+
+class RecipeFullSchema(RecipeCreateSchema):
+    id: int
+    user: UserSchema
+    ingredients: List[IngredientCountSchema] | None
+    tags: List[TagSchema] | None
 
     class Config:
         orm_mode = True
