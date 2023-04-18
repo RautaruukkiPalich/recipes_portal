@@ -4,8 +4,7 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.auth.models import User
-from src.recipe.models import Recipe, Ingredient, Measure, IngredientCount, Tag, RecipeType
+from src.recipe.models import Ingredient, Measure, IngredientCount, Tag, RecipeType
 from src.recipe.schemas import IngredientCountSchema, RecipeFullSchema, TagSchema
 
 
