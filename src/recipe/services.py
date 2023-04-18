@@ -29,19 +29,26 @@ async def post_sequence_to_db(session: AsyncSession, stmt):
     return result
 
 
-async def get_recipes_list(session, query_recipe_and_user):  # query_recipe_and_user=select(Recipe, User).join(User)
+async def get_recipes_list(session, query_recipe_and_user):
 
     list_recipes = await get_sequence_from_db(session, query_recipe_and_user)
 
     recipe_ids = [recipe.id for recipe in list_recipes]
+
     query = select(
         IngredientCount, Ingredient, Measure
     ).join(
         Ingredient
     ).join(
         Measure
-    ).filter(
+    ).where(
         IngredientCount.recipe_id.in_(recipe_ids)
+    ).where(
+        IngredientCount.deleted_on.is_(None)
+    ).where(
+        Ingredient.deleted_on.is_(None)
+    ).where(
+        Measure.deleted_on.is_(None)
     )
     list_ingredients_count = await get_sequence_from_db(session, query)
 
@@ -49,8 +56,12 @@ async def get_recipes_list(session, query_recipe_and_user):  # query_recipe_and_
         RecipeType, Tag
     ).join(
         Tag
-    ).filter(
+    ).where(
         RecipeType.recipe_id.in_(recipe_ids)
+    ).where(
+        Tag.deleted_on.is_(None)
+    ).where(
+        RecipeType.deleted_on.is_(None)
     )
     list_recipe_types = await get_sequence_from_db(session, query)
 
@@ -74,12 +85,13 @@ async def create_recipes_list(list_recipes: Sequence,
         add_ingredients: List[IngredientCountSchema] = [
             ingredient_element for ingredient_element
             in list_ingredients_count
-            if ingredient_element.recipe_id == _recipe.id]
+            if ingredient_element.recipe_id == _recipe.id
+        ]
 
         add_tags: List[TagSchema] = [
             tag.tag for tag
             in list_recipe_types
-            if all([tag.recipe_id == _recipe.id, tag.deleted_on is None])
+            if tag.recipe_id == _recipe.id
         ]
 
         recipe_item: dict = {

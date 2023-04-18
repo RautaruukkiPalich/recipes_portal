@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from pydantic.schema import datetime
 
 
-
 class EmptySchema(BaseModel):
     pass
 
