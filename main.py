@@ -10,6 +10,7 @@ from src.services import routers
 from fastapi import FastAPI, Depends
 from datetime import datetime as dt
 from src.recipe.router import router as recipe_router
+from src.db.redis.settings import start_redis
 
 
 app = FastAPI(
@@ -56,6 +57,7 @@ async def on_startup():
         logging.INFO,
         f"{dt.now()}: server up...",
     )
+    await start_redis()
 
 
 @app.on_event("shutdown")
