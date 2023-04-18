@@ -4,6 +4,11 @@ from pydantic import BaseModel
 from pydantic.schema import datetime
 
 
+
+class EmptySchema(BaseModel):
+    pass
+
+
 class TagBaseSchema(BaseModel):
     pass
 
@@ -76,6 +81,18 @@ class UserSchema(UserBaseSchema):
     last_name: str
 
 
+class DataBaseSchema(BaseModel):
+    pass
+
+
+class DataCreateSchema(DataBaseSchema):
+    pass
+
+
+class DataSchema(DataBaseSchema):
+    pass
+
+
 class RecipeBaseSchema(BaseModel):
     pass
 
@@ -99,6 +116,9 @@ class RecipeFullSchema(RecipeCreateSchema):
     user: UserSchema
     ingredients: List[IngredientCountSchema] | None
     tags: List[TagSchema] | None
+    photos: List[DataSchema] | List[EmptySchema]
 
     class Config:
         orm_mode = True
+
+
