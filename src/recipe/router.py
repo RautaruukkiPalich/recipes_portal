@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.auth.models import User
 from src.db.pg.settings import get_async_session
+from src.db.redis.settings import cache as redis_cache
 from src.recipe.models import (Tag, Ingredient, Measure, Recipe)
 from src.recipe.schemas import (TagCreateSchema, TagSchema, MeasureCreateSchema,
                                 MeasureSchema, RecipeCreateSchema, IngredientCreateSchema,
@@ -37,6 +38,7 @@ async def add_tag(
 
 
 @router.get("/tags/", response_model=List[TagSchema])
+@redis_cache(expire=60)
 async def get_tags(session: AsyncSession = Depends(get_async_session)):
 
     query = select(Tag)
@@ -84,6 +86,7 @@ async def add_measure(
 
 
 @router.get("/measures/", response_model=List[MeasureSchema])
+@redis_cache(expire=60)
 async def get_measures(session: AsyncSession = Depends(get_async_session)):
 
     query = select(Measure)
@@ -109,6 +112,7 @@ async def add_ingredient(
 
 
 @router.get("/ingredients/", response_model=List[IngredientSchema])
+@redis_cache(expire=60)
 async def get_ingredients(session: AsyncSession = Depends(get_async_session)):
 
     query = select(Ingredient)
@@ -134,6 +138,7 @@ async def add_recipe(
 
 
 @router.get("/", response_model=List[RecipeFullSchema])
+@redis_cache(expire=60)
 async def get_full_recipes(session: AsyncSession = Depends(get_async_session)):
 
     query_recipe_and_user = select(Recipe, User).join(User)
