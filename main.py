@@ -1,6 +1,7 @@
 import logging
 import uvicorn
 from fastapi_users import FastAPIUsers
+from starlette.middleware.cors import CORSMiddleware
 
 from src.auth.config import auth_backend
 from src.auth.manager import get_user_manager
@@ -11,7 +12,7 @@ from fastapi import FastAPI, Depends
 from datetime import datetime as dt
 from src.recipe.router import router as recipe_router
 from src.db.redis.settings import start_redis
-
+from src.services.settings import ORIGINS
 
 app = FastAPI(
     title="Cooking_portal"
@@ -44,6 +45,14 @@ app.include_router(
 )
 
 current_user = fastapi_users.current_user()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ORIGINS,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type"],
+)
 
 
 @app.get("/protected-route")
