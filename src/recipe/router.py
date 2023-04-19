@@ -12,8 +12,9 @@ from src.recipe.models import (Tag, Ingredient, Measure, Recipe)
 from src.recipe.schemas import (TagCreateSchema, TagSchema, MeasureCreateSchema,
                                 MeasureSchema, RecipeCreateSchema, IngredientCreateSchema,
                                 IngredientSchema, RecipeFullSchema)
-from src.recipe.services import (get_sequence_from_db, get_recipes_list,
-                                 post_sequence_to_db)
+from src.recipe.queries import (get_sequence_from_db, post_sequence_to_db)
+from src.recipe.services import get_recipes_list
+
 
 router = APIRouter(
     prefix="/recipes",
@@ -139,10 +140,13 @@ async def add_recipe(
 
 @router.get("/", response_model=List[RecipeFullSchema])
 @redis_cache(expire=60)
-async def get_full_recipes(session: AsyncSession = Depends(get_async_session)):
+async def get_full_recipes(
+        tag: int | None = None,
+        session: AsyncSession = Depends(get_async_session),
+):
 
     query_recipe_and_user = select(Recipe, User).join(User)
-    result = await get_recipes_list(session, query_recipe_and_user)
+    result = await get_recipes_list(session, query_recipe_and_user, tag)
 
     return result
 
