@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.recipe.models import Ingredient, Measure, IngredientCount, Tag, RecipeType
@@ -63,3 +63,7 @@ async def get_recipe_sequences(session, query_recipe_and_user, tag=None):
 
     return [list_recipes, list_ingredients_count, list_recipe_types]
 
+
+async def insert_values_to_db(session, table, values):
+    stmt = insert(table).values(values)
+    return await post_sequence_to_db(session, stmt)
