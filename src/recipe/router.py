@@ -8,13 +8,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from src.auth.models import User
 from src.db.pg.settings import get_async_session
 from fastapi_cache.decorator import cache as redis_cache
-from src.recipe.models import (Tag, Ingredient, Measure, Recipe)
+from src.recipe.models import (Tag, Ingredient, Measure, Recipe, RecipeType, IngredientCount)
 from src.recipe.schemas import (TagCreateSchema, TagSchema, MeasureCreateSchema,
                                 MeasureSchema, RecipeCreateSchema, IngredientCreateSchema,
                                 IngredientSchema, RecipeFullSchema)
-from src.recipe.queries import (get_sequence_from_db, post_sequence_to_db)
-from src.recipe.services import get_recipes_list
-
+from src.recipe.queries import (get_sequence_from_db, post_sequence_to_db, insert_values_to_db)
+from src.recipe.services import (get_recipes_list, create_list_ingredient_dicts, create_list_tag_dicts)
 
 router = APIRouter(
     prefix="/recipes",
@@ -131,15 +130,33 @@ async def add_recipe(
         recipe_items: RecipeCreateSchema,
         session: AsyncSession = Depends(get_async_session)):
 
-    query = select(Recipe).where(Recipe.name == recipe_items.name)
-    result = await get_sequence_from_db(session, query)
+    recipe = recipe_items.__dict__
 
-    if not result:
-        stmt = insert(Recipe).values(**recipe_items.dict())
-    else:
-        stmt = update(Recipe).where(Recipe.name == recipe_items.name).values(deleted_on=None)
+    # user_token = recipe.get("user_token")
+    # list_photos = recipe.get("photos")
 
-    result = await post_sequence_to_db(session, stmt)
+    values = {
+        "name": recipe.get("name"),
+        "description": recipe.get("description"),
+        "execute_time": recipe.get("execute_time"),
+        "user_id": 1,
+    }
+    result = await insert_values_to_db(session, Recipe, values)
+    if result["error"]:
+        return result
+
+    query = select(Recipe.id).where(Recipe.name == str(recipe.get("name")))
+    recipe_id = (await get_sequence_from_db(session, query))[0]
+
+    values = await create_list_tag_dicts(recipe.get("tags"), recipe_id)
+    result = await insert_values_to_db(session, RecipeType, values)
+    if result["error"]:
+        return result
+
+    values = await create_list_ingredient_dicts(recipe.get("ingredients"), recipe_id)
+    result = await insert_values_to_db(session, IngredientCount, values)
+    if result["error"]:
+        return result
 
     return result
 
