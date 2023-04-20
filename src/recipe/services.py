@@ -22,6 +22,26 @@ async def get_list_tags(sequence, recipe_id) -> list:
     return [elem.tag for elem in sequence if elem.recipe_id == recipe_id]
 
 
+async def create_list_tag_dicts(list_tags, recipe_id):
+    return [
+        {
+            "recipe_id": recipe_id,
+            "tag_id": tag.id,
+        } for tag in list_tags
+    ]
+
+
+async def create_list_ingredient_dicts(list_ingredients, recipe_id):
+    return [
+        {
+            "recipe_id": recipe_id,
+            "measure_id": ingr.measure.id,
+            "count": ingr.count,
+            "ingredient_id": ingr.ingredient.id,
+        } for ingr in list_ingredients
+    ]
+
+
 async def create_recipe_object(recipe, tags, ingredients) -> dict:
     return {
             "id": recipe.id,
@@ -60,3 +80,33 @@ async def create_recipes_list(list_recipes: Sequence,
 
     return recipes
 
+
+
+# {
+#   "name": "Блюдо",
+#   "description": "Описание",
+#   "execute_time": 25,
+#   "user_token": "string",
+#   "ingredients": [
+#     {
+#       "ingredient": {
+#         "name": "Курица",
+#         "id": 1
+#       },
+#       "count": 2,
+#       "measure": {
+#         "measure": "килограмм",
+#         "id": 2
+#       }
+#     }
+#   ],
+#   "tags": [
+#     {
+#       "tag": "Блюда из курицы",
+#       "id": 5
+#     }
+#   ],
+#   "photos": [
+#     {}
+#   ]
+# }
