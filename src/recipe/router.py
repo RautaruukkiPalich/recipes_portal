@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.auth.models import User
 from src.db.pg.settings import get_async_session
-from src.db.redis.settings import cache as redis_cache
+from fastapi_cache.decorator import cache as redis_cache
 from src.recipe.models import (Tag, Ingredient, Measure, Recipe)
 from src.recipe.schemas import (TagCreateSchema, TagSchema, MeasureCreateSchema,
                                 MeasureSchema, RecipeCreateSchema, IngredientCreateSchema,
@@ -39,7 +39,7 @@ async def add_tag(
 
 
 @router.get("/tags/", response_model=List[TagSchema])
-@redis_cache(expire=60)
+# @redis_cache(expire=60)
 async def get_tags(session: AsyncSession = Depends(get_async_session)):
 
     query = select(Tag)
@@ -77,17 +77,19 @@ async def add_measure(
 
     query = select(Measure).where(Measure.measure == measure_name.measure)
     result = await get_sequence_from_db(session, query)
+
     if not result:
         stmt = insert(Measure).values(**measure_name.dict())
     else:
         stmt = update(Measure).where(Measure.measure == measure_name.measure).values(deleted_on=None)
+
     result = await post_sequence_to_db(session, stmt)
 
     return result
 
 
 @router.get("/measures/", response_model=List[MeasureSchema])
-@redis_cache(expire=60)
+# @redis_cache(expire=60)
 async def get_measures(session: AsyncSession = Depends(get_async_session)):
 
     query = select(Measure)
@@ -103,17 +105,19 @@ async def add_ingredient(
 
     query = select(Ingredient).where(Ingredient.name == ingredient_name.name)
     result = await get_sequence_from_db(session, query)
+
     if not result:
         stmt = insert(Ingredient).values(**ingredient_name.dict())
     else:
         stmt = update(Ingredient).where(Ingredient.name == ingredient_name.name).values(deleted_on=None)
+
     result = await post_sequence_to_db(session, stmt)
 
     return result
 
 
 @router.get("/ingredients/", response_model=List[IngredientSchema])
-@redis_cache(expire=60)
+# @redis_cache(expire=60)
 async def get_ingredients(session: AsyncSession = Depends(get_async_session)):
 
     query = select(Ingredient)
@@ -129,17 +133,19 @@ async def add_recipe(
 
     query = select(Recipe).where(Recipe.name == recipe_items.name)
     result = await get_sequence_from_db(session, query)
+
     if not result:
         stmt = insert(Recipe).values(**recipe_items.dict())
     else:
         stmt = update(Recipe).where(Recipe.name == recipe_items.name).values(deleted_on=None)
+
     result = await post_sequence_to_db(session, stmt)
 
     return result
 
 
 @router.get("/", response_model=List[RecipeFullSchema])
-@redis_cache(expire=60)
+# @redis_cache(expire=60)
 async def get_full_recipes(
         tag: int | None = None,
         session: AsyncSession = Depends(get_async_session),
