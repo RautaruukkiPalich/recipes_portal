@@ -7,7 +7,6 @@ from src.auth.config import auth_backend
 from src.auth.manager import get_user_manager
 from src.auth.models import User
 from src.schemas.user_schemas import UserRead, UserCreate
-from src.services import routers
 from fastapi import FastAPI, Depends
 from datetime import datetime as dt
 from src.recipe.router import router as recipe_router
@@ -28,7 +27,6 @@ fastapi_users = FastAPIUsers[User, int](
     [auth_backend],
 )
 
-app.include_router(routers.router)
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
