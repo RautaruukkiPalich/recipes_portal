@@ -96,22 +96,39 @@ class RecipeBaseSchema(BaseModel):
     pass
 
 
-class RecipeCreateSchema(RecipeBaseSchema):
+class RecipeSchema(BaseModel):
+    id: int
     name: str
     description: str
     execute_time: int
-
-
-class RecipeSchema(RecipeCreateSchema):
-    id: int
     user_id: int
 
     class Config:
         orm_mode = True
 
 
-class RecipeFullSchema(RecipeCreateSchema):
+class tmpSchema(BaseModel):
+    ingredient: IngredientSchema
+    count: int
+    measure: MeasureSchema
+
+
+class RecipeCreateSchema(RecipeBaseSchema):
+    name: str
+    description: str
+    execute_time: int
+    user_token: str
+    # user_id: id
+    ingredients: List[tmpSchema] | None
+    tags: List[TagSchema] | None
+    photos: List[DataSchema] | None
+
+
+class RecipeFullSchema(RecipeBaseSchema):
     id: int
+    name: str
+    description: str
+    execute_time: int
     user: UserSchema
     ingredients: List[IngredientCountSchema] | None
     tags: List[TagSchema] | None
