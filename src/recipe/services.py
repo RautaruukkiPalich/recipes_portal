@@ -6,24 +6,23 @@ from src.recipe.schemas import IngredientCountSchema, RecipeFullSchema, TagSchem
 
 async def get_recipes_list(session, query_recipe_and_user, tag=None):
     sequences = await get_recipe_sequences(session, query_recipe_and_user, tag)
-    recipes_list = await create_recipes_list(*sequences)
 
-    return recipes_list
+    return await create_recipes_list(*sequences)
 
 
-async def add_key(elements):
+async def add_key(elements) -> list | None:
     return elements if elements else None
 
 
-async def get_list_ingredients(sequence, recipe_id):
+async def get_list_ingredients(sequence, recipe_id) -> list:
     return [elem for elem in sequence if elem.recipe_id == recipe_id]
 
 
-async def get_list_tags(sequence, recipe_id):
+async def get_list_tags(sequence, recipe_id) -> list:
     return [elem.tag for elem in sequence if elem.recipe_id == recipe_id]
 
 
-async def create_recipe_object(recipe, tags, ingredients):
+async def create_recipe_object(recipe, tags, ingredients) -> dict:
     return {
             "id": recipe.id,
             "name": recipe.name,
