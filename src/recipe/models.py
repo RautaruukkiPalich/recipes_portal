@@ -7,22 +7,22 @@ from src.db.pg.settings import Base
 
 class Measure(TableMixin, Base):
     id = Column(Integer, primary_key=True)
-    measure = Column(String(length=20), nullable=False, unique=True)
+    measure = Column(String(length=30), nullable=False, unique=True)
 
 
 class IngredientType(TableMixin, Base):
     id = Column(Integer, primary_key=True)
-    type = Column(String(length=20), nullable=False, unique=True)
+    type = Column(String(length=30), nullable=False, unique=True)
 
 
 class Ingredient(TableMixin, Base):
     id = Column(Integer, primary_key=True)
-    name = Column(String(length=20), nullable=False, unique=True)
+    name = Column(String(length=30), nullable=False, unique=True)
 
 
 class Tag(TableMixin, Base):
     id = Column(Integer, primary_key=True)
-    tag = Column(String(length=20), nullable=False, unique=True)
+    tag = Column(String(length=30), nullable=False, unique=True)
 
     # RecipeType = relationship("RecipeTag", back_populates="Tag")
 
