@@ -12,7 +12,12 @@ async def get_sequence_from_db(session: AsyncSession, query):
 
 async def post_sequence_to_db(session: AsyncSession, stmt):
     try:
-        await session.execute(stmt)
+        if isinstance(stmt, list):
+            for _stmt in stmt:
+                await session.execute(_stmt)
+        else:
+            await session.execute(stmt)
+
         await session.commit()
         result = {
             "error": None,
