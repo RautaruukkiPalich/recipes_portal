@@ -30,19 +30,18 @@ fastapi_users = FastAPIUsers[User, int](
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
-    prefix="/auth/jwt",
+    prefix="/api/v1/auth/jwt",
     tags=["auth"],
 )
 app.include_router(
     fastapi_users.get_register_router(UserRead, UserCreate),
-    prefix="/auth",
+    prefix="/api/v1/auth",
     tags=["auth"],
 )
 app.include_router(
     recipe_router,
 )
 
-current_user = fastapi_users.current_user()
 
 app.add_middleware(
     CORSMiddleware,
@@ -53,7 +52,10 @@ app.add_middleware(
 )
 
 
-@app.get("/protected-route")
+current_user = fastapi_users.current_user()
+
+
+@app.get("/api/v1/protected-route")
 def protected_route(user: User = Depends(current_user)):
     return f"Hello, {user.nickname}"
 
