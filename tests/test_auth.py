@@ -12,8 +12,9 @@ async def test_register(ac: AsyncClient):
         "first_name": "first_name",
         "last_name": "last_name"
     }
+    url = "/api/v1/auth/register"
 
-    response = await ac.post("/auth/register", json=data)
+    response = await ac.post(url, json=data)
 
     assert response.status_code == 201, "Пользователь не добавлен"
 
@@ -37,8 +38,9 @@ async def test_login(ac: AsyncClient):
         "username": "email",
         "password": "password",
     }
+    url = "/api/v1/auth/jwt/login"
 
-    response = await ac.post("/auth/jwt/login",
+    response = await ac.post(url,
                              data=data,
                              headers={"Content-Type": "application/x-www-form-urlencoded"}
                              )
@@ -51,11 +53,13 @@ async def test_login(ac: AsyncClient):
 
 async def test_logout(ac: AsyncClient):
 
-    response = await ac.post("/auth/jwt/logout", headers={"Cookie": jwt_token.get_token()})
+    url = "/api/v1/auth/jwt/logout"
+
+    response = await ac.post(url, headers={"Cookie": jwt_token.get_token()})
 
     assert response.status_code == 200, "Пользователь не был авторизован"
 
     jwt_token.set_token("")
-    response = await ac.post("/auth/jwt/logout", headers={"Cookie": jwt_token.get_token()})
+    response = await ac.post(url, headers={"Cookie": jwt_token.get_token()})
 
     assert response.status_code == 401, "Пользователь ещё авторизован"
