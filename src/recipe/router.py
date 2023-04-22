@@ -16,7 +16,7 @@ from src.recipe.queries import (get_sequence_from_db, post_sequence_to_db, inser
 from src.recipe.services import (get_recipes_list, create_list_ingredient_dicts, create_list_tag_dicts)
 
 router = APIRouter(
-    prefix="/recipes",
+    prefix="/api/v1/recipes",
     tags=["recipes"]
 )
 
@@ -141,22 +141,20 @@ async def add_recipe(
         "execute_time": recipe.get("execute_time"),
         "user_id": 1,
     }
-    result = await insert_values_to_db(session, Recipe, values)
-    if result["error"]:
-        return result
 
-    query = select(Recipe.id).where(Recipe.name == str(recipe.get("name")))
-    recipe_id = (await get_sequence_from_db(session, query))[0]
+    stmt_recipe = insert(Recipe).values(values).returning(Recipe.id)
+    returnig_item = await session.execute(stmt_recipe)
+    recipe_id = returnig_item.one()[0]
 
-    values = await create_list_tag_dicts(recipe.get("tags"), recipe_id)
-    result = await insert_values_to_db(session, RecipeType, values)
-    if result["error"]:
-        return result
+    list_tags = await create_list_tag_dicts(recipe.get("tags"), recipe_id)
+    stmt_tags = insert(RecipeType).values(list_tags)
 
-    values = await create_list_ingredient_dicts(recipe.get("ingredients"), recipe_id)
-    result = await insert_values_to_db(session, IngredientCount, values)
-    if result["error"]:
-        return result
+    list_ingrs = await create_list_ingredient_dicts(recipe.get("ingredients"), recipe_id)
+    stmt_ingrs = insert(IngredientCount).values(list_ingrs)
+
+    stmt_list = [stmt_recipe, stmt_tags, stmt_ingrs]
+
+    result = await post_sequence_to_db(session, stmt_list)
 
     return result
 
@@ -165,8 +163,7 @@ async def add_recipe(
 # @redis_cache(expire=60)
 async def get_full_recipes(
         tag: int | None = None,
-        session: AsyncSession = Depends(get_async_session),
-):
+        session: AsyncSession = Depends(get_async_session)):
 
     query_recipe_and_user = select(Recipe, User).join(User)
     result = await get_recipes_list(session, query_recipe_and_user, tag)
